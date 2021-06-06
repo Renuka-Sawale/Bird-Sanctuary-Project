@@ -1,7 +1,17 @@
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Set;
 
 public class BirdSanctuaryManager {
+
+    public static String FILE_NAME = "F:\\Bird-Sanctuary\\src\\main\\resources\\Bird";
+
     Set<Bird> birdList = new HashSet<Bird>();
     private static BirdSanctuaryManager instance;
     public static BirdSanctuaryManager getInstance() {
@@ -56,5 +66,23 @@ public class BirdSanctuaryManager {
     public void printEatable() {
         birdList.stream().forEach(bird -> (bird).eat());
 
+    }
+
+    public void printBird() {
+        birdList.toString();
+        System.out.println(birdList);
+    }
+
+    public void saveBirdsToFile() {
+        StringBuffer stringBuffer = new StringBuffer();
+        birdList.forEach(bird -> {
+            String birdDataString = bird.toString().concat("\n");
+            stringBuffer.append(birdDataString);
+        });
+        try {
+            Files.write(Paths.get(FILE_NAME),stringBuffer.toString().getBytes(StandardCharsets.UTF_8));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

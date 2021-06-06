@@ -1,7 +1,8 @@
 import java.util.Objects;
 
-abstract public class Bird {
+abstract public class Bird  {
     String id;
+    String color;
     abstract int getCount();
     abstract void incrementCount();
     abstract void decrementCount();
@@ -18,6 +19,14 @@ abstract public class Bird {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Bird{" +
+                "id='" + id + '\'' +
+                ", color='" + color + '\'' +
+                '}';
     }
 }
 

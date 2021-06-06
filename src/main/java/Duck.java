@@ -4,6 +4,7 @@ public class Duck extends Bird implements Flyable, Swimable {
 
     public Duck(String id) {
         this.id = id;
+        this.color = "Black";
     }
 
     public void eat() {

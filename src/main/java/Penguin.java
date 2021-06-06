@@ -4,6 +4,7 @@ public class Penguin extends Bird implements Swimable {
 
     public Penguin(String id) {
         this.id = id;
+        this.color = "Black-White";
     }
 
     public void eat() {

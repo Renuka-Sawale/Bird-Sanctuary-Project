@@ -1,6 +1,8 @@
+import java.io.IOException;
+
 public class MainClass {
 
-    public static void main(String args[]) throws BirdSanctuaryException {
+    public static void main(String args[]) throws BirdSanctuaryException, IOException {
         System.out.println("welcome to BirdSanctuaryManager");
         BirdSanctuaryManager birdSanctuaryManager = BirdSanctuaryManager.getInstance();
 
@@ -18,6 +20,8 @@ public class MainClass {
         birdSanctuaryManager.printSwimable();
         birdSanctuaryManager.printFlyable();
         birdSanctuaryManager.printEatable();
+
+        birdSanctuaryManager.printBird();
 
         BirdSanctuaryManager.getInstance().printEatable();
         BirdSanctuaryManager.getInstance().printFlyable();
@@ -37,5 +41,7 @@ public class MainClass {
         System.out.println("Number of Ducks are: " + duck.getCount());
         System.out.println("Number of Crows are: " + crow.getCount());
         System.out.println("Total Birds = " + BirdSanctuaryManager.getInstance().getAllCount());
+
+        BirdSanctuaryManager.getInstance().saveBirdsToFile();
     }
 }
